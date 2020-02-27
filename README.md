@@ -87,7 +87,20 @@ BLS.final$pre_rate=as.numeric(BLS.final$pre_rate)
 # join the BLS data and the bridge data
 data.final=left_join(bridges,BLS.final,by = c("COUNTY_CODE_003" = "County","state")) %>% 
   select(state,COUNTY_CODE_003,ServiceLevel1,ADT,Unemployed_Level,Unemployed_Rate,pre_level,pre_rate)
+head(data.final)
 ```
+
+    ## # A tibble: 6 x 8
+    ## # Groups:   state, COUNTY_CODE_003 [6]
+    ##   state COUNTY_CODE_003 ServiceLevel1    ADT Unemployed_Level Unemployed_Rate
+    ##   <chr>           <dbl>         <int>  <dbl>            <dbl>           <dbl>
+    ## 1 AK                 10            13 1.04e4               NA            NA  
+    ## 2 AK                 13             2 1.10e1               85             7.3
+    ## 3 AK                 20            93 2.21e6             7828             5.1
+    ## 4 AK                 50             4 3.94e3              836            11.3
+    ## 5 AK                 60             3 2.38e3               34            14.3
+    ## 6 AK                 68            23 4.20e4              109            16.3
+    ## # ... with 2 more variables: pre_level <dbl>, pre_rate <dbl>
 
 ``` r
 # fit the linear model

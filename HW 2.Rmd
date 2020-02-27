@@ -78,6 +78,7 @@ BLS.final$pre_rate=as.numeric(BLS.final$pre_rate)
 # join the BLS data and the bridge data
 data.final=left_join(bridges,BLS.final,by = c("COUNTY_CODE_003" = "County","state")) %>% 
   select(state,COUNTY_CODE_003,ServiceLevel1,ADT,Unemployed_Level,Unemployed_Rate,pre_level,pre_rate)
+head(data.final)
 ```
 
 ```{r}
